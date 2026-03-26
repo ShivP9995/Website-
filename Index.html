@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Red Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a0000, #660000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      width: 320px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    }
+
+    h2 {
+      color: #ff4d4d;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #ff1a1a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #cc0000;
+      box-shadow: 0 0 10px red;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<script>
+  function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "1234") {
+      alert("Welcome 🔥");
+    } else {
+      alert("Invalid Login ❌");
+    }
+  }
+</script>
+
+</body>
+</html>
