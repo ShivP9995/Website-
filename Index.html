@@ -1,20 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Red Login</title>
+  <title>Animated Red Login</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial;
       height: 100vh;
+      overflow: hidden;
       background: linear-gradient(135deg, #1a0000, #660000);
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
+    /* 🔴 Floating circles animation */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 0, 0, 0.2);
+      animation: float 10s infinite;
+    }
+
+    .circle:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      left: 10%;
+      animation-duration: 12s;
+    }
+
+    .circle:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      left: 70%;
+      animation-duration: 15s;
+    }
+
+    .circle:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      left: 40%;
+      animation-duration: 10s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    /* Login Box */
     .login-box {
+      position: relative;
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       padding: 30px;
@@ -22,6 +59,7 @@
       border-radius: 15px;
       text-align: center;
       box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      z-index: 2;
     }
 
     h2 {
@@ -40,10 +78,6 @@
       color: white;
     }
 
-    input::placeholder {
-      color: #ccc;
-    }
-
     button {
       width: 100%;
       padding: 12px;
@@ -52,9 +86,7 @@
       border-radius: 8px;
       background: #ff1a1a;
       color: white;
-      font-size: 16px;
       cursor: pointer;
-      transition: 0.3s;
     }
 
     button:hover {
@@ -66,6 +98,12 @@
 
 <body>
 
+<!-- 🔴 Animated circles -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<!-- Login Box -->
 <div class="login-box">
   <h2>Login</h2>
   <input type="text" id="username" placeholder="Username">
