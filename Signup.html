@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -44,9 +45,22 @@ button {
   border:none;
   border-radius:8px;
   color:white;
+  cursor:pointer;
 }
 
-/* Social FIX */
+.error {
+  color:#ff4d4d;
+  font-size:14px;
+  display:none;
+}
+
+.success {
+  color:#00ff99;
+  font-size:14px;
+  display:none;
+}
+
+/* Social */
 .social {
   display:flex;
   justify-content:center;
@@ -62,7 +76,6 @@ button {
 /* link */
 .link {
   margin-top:10px;
-  font-size:14px;
 }
 
 .link a {
@@ -70,18 +83,23 @@ button {
   text-decoration:none;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="signup-box">
-  <h2>Sign Up</h2>
 
-  <input placeholder="Username">
-  <input placeholder="Email">
-  <input type="password" placeholder="Password">
+  <h2>Create Account</h2>
 
-  <button>Create Account</button>
+  <input id="user" placeholder="Username">
+  <input id="email" placeholder="Email">
+  <input id="pass" type="password" placeholder="Password">
+
+  <div class="error" id="error">❌ Fill all fields</div>
+  <div class="success" id="success">✅ Account Created</div>
+
+  <button onclick="signup()">Create Account</button>
 
   <!-- Social -->
   <div class="social">
@@ -90,12 +108,44 @@ button {
     <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png"></a>
   </div>
 
-  <!-- Back to login -->
+  <!-- Back -->
   <div class="link">
     Already have account? <a href="index.html">Login</a>
   </div>
 
 </div>
+
+<script>
+
+// 🔐 Signup function
+function signup() {
+  let user = document.getElementById("user").value;
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("pass").value;
+
+  let error = document.getElementById("error");
+  let success = document.getElementById("success");
+
+  if(user === "" || email === "" || pass === "") {
+    error.style.display = "block";
+    success.style.display = "none";
+    return;
+  }
+
+  // 💾 Save data (localStorage)
+  localStorage.setItem("username", user);
+  localStorage.setItem("password", pass);
+
+  error.style.display = "none";
+  success.style.display = "block";
+
+  // 🔁 Redirect to login after 1.5 sec
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 1500);
+}
+
+</script>
 
 </body>
 </html>
