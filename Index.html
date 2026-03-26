@@ -1,209 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shiv Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      height: 100vh;
-      display: flex;
-      overflow: hidden;
-      background: linear-gradient(135deg, #1a0000, #660000);
-      color: white;
-    }
+<title>Shiv Login</title>
 
-    .container {
-      display: flex;
-      width: 100%;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #1a0000, #660000);
+  color: white;
+}
 
-    /* 🔴 LEFT SIDE TEXT */
-    .left {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-    }
+/* 🔥 Responsive Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 
-    .left h1 {
-      font-size: 40px;
-      color: #ff4d4d;
-    }
+/* Desktop view */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
 
-    .left p {
-      font-size: 18px;
-      color: #ccc;
-    }
+/* LEFT */
+.left {
+  text-align: center;
+  padding: 20px;
+}
 
-    /* 🔴 RIGHT SIDE LOGIN */
-    .right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.left h1 {
+  color: #ff4d4d;
+}
 
-    .login-box {
-      background: rgba(255,255,255,0.05);
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      width: 320px;
-      box-shadow: 0 0 20px red;
-      backdrop-filter: blur(10px);
-      z-index: 2;
-    }
+.left p {
+  color: #ccc;
+}
 
-    h2 {
-      color: #ff4d4d;
-    }
+/* RIGHT */
+.login-box {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 15px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 0 20px red;
+  backdrop-filter: blur(10px);
+}
 
-    input {
-      width: 90%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      background: rgba(255,255,255,0.1);
-      color: white;
-    }
+/* Inputs */
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
 
-    input::placeholder {
-      color: #aaa;
-    }
+/* Button */
+button {
+  width: 100%;
+  padding: 10px;
+  background: red;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+/* Social */
+.social img {
+  width: 28px;
+  margin: 8px;
+}
 
-    button:hover {
-      background: darkred;
-      box-shadow: 0 0 10px red;
-    }
+/* Animation */
+.circle {
+  position: fixed;
+  border-radius: 50%;
+  background: rgba(255,0,0,0.2);
+  animation: float 10s infinite;
+}
 
-    /* 🔗 SOCIAL ICONS */
-    .social {
-      margin-top: 15px;
-    }
+.circle:nth-child(1){width:60px;height:60px;left:10%;}
+.circle:nth-child(2){width:100px;height:100px;left:70%;}
+.circle:nth-child(3){width:40px;height:40px;left:40%;}
 
-    .social img {
-      width: 30px;
-      margin: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .social img:hover {
-      transform: scale(1.2);
-    }
-
-    /* 🔴 BACKGROUND ANIMATION */
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 0, 0, 0.2);
-      animation: float 10s infinite;
-    }
-
-    .circle:nth-child(1) {
-      width: 80px;
-      height: 80px;
-      left: 10%;
-      animation-duration: 12s;
-    }
-
-    .circle:nth-child(2) {
-      width: 120px;
-      height: 120px;
-      left: 70%;
-      animation-duration: 15s;
-    }
-
-    .circle:nth-child(3) {
-      width: 60px;
-      height: 60px;
-      left: 40%;
-      animation-duration: 10s;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh); }
-      100% { transform: translateY(-100vh); }
-    }
-
-  </style>
+@keyframes float {
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-100vh);}
+}
+</style>
 </head>
 
 <body>
 
-<!-- 🔴 Animation -->
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
 
 <div class="container">
 
-  <!-- LEFT -->
   <div class="left">
-    <div>
-      <h1>Welcome Back 👋</h1>
-      <p>Login to continue<br>Secure • Fast • Reliable</p>
-    </div>
+    <h1>Welcome Back 👋</h1>
+    <p>Login to continue<br>Secure • Fast • Reliable</p>
   </div>
 
-  <!-- RIGHT -->
-  <div class="right">
-    <div class="login-box">
-      <h2>Login</h2>
+  <div class="login-box">
+    <h2>Login</h2>
 
-      <input type="text" id="user" placeholder="Username">
-      <input type="password" id="pass" placeholder="Password">
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
 
-      <button onclick="login()">Login</button>
+    <button>Login</button>
 
-      <!-- Social -->
-      <div class="social">
-        <a href="https://instagram.com" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-        </a>
-
-        <a href="https://facebook.com" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
-        </a>
-
-        <a href="https://github.com" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
-        </a>
-      </div>
-
+    <div class="social">
+      <a href="https://instagram.com"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
+      <a href="https://facebook.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+      <a href="https://github.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png"></a>
     </div>
   </div>
 
 </div>
-
-<script>
-function login() {
-  let u = document.getElementById("user").value;
-  let p = document.getElementById("pass").value;
-
-  if(u === "admin" && p === "1234") {
-    alert("Login Successful 🔥");
-  } else {
-    alert("Wrong Login ❌");
-  }
-}
-</script>
 
 </body>
 </html>
