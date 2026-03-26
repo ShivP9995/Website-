@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sign Up</title>
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg,#00001a,#000066);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.signup-box {
+  background: rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:15px;
+  width:90%;
+  max-width:320px;
+  text-align:center;
+  box-shadow:0 0 20px blue;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:none;
+}
+
+button {
+  width:100%;
+  padding:10px;
+  background:blue;
+  border:none;
+  border-radius:8px;
+  color:white;
+}
+
+/* Social FIX */
+.social {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:10px;
+}
+
+.social img {
+  width:28px !important;
+  height:28px !important;
+}
+
+/* link */
+.link {
+  margin-top:10px;
+  font-size:14px;
+}
+
+.link a {
+  color:#4d79ff;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="signup-box">
+  <h2>Sign Up</h2>
+
+  <input placeholder="Username">
+  <input placeholder="Email">
+  <input type="password" placeholder="Password">
+
+  <button>Create Account</button>
+
+  <!-- Social -->
+  <div class="social">
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png"></a>
+  </div>
+
+  <!-- Back to login -->
+  <div class="link">
+    Already have account? <a href="index.html">Login</a>
+  </div>
+
+</div>
+
+</body>
+</html>
